@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">IdeaStudio</string>
+
+    <!-- Strings related to sql connection -->
+    <string name="sql_connection_url">jdbc:mysql://10.0.2.2:3306/isa</string>
+    <string name="sql_connection_username">richard</string>
+    <string name="sql_connection_password">670820</string>
+
+    <!-- SharedPreferences keys -->
+    <string name="hu.ideastudio.richard_loginInfo">hu.ideastudio.richard_loginInfo</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">Bejelentkezés</string>
+
+    <!-- Drawer layout elements -->
+    <string name="login">Bejelentkezés</string>
+    <string name="adventures">Kalandjátékok</string>
+    <string name="communicate">Visszajelzés</string>
+    <string name="bug_report">Visszajelzés küldése</string>
+    <string name="username"></string>
+    <string name="redeem">Ajándék kód beváltása</string>
+
+    <!-- Strings related to login -->
+    <string name="login_prompt_email">E-mail cím</string>
+    <string name="login_prompt_password">Jelszó</string>
+    <string name="login_action_sign_in">Bejelentkezés</string>
+    <string name="login_action_sign_in_short">Bejelentkezés</string>
+    <string name="login_error_invalid_email">A megadott email cím érvénytelen</string>
+    <string name="login_error_invalid_password">A jelszó túl rövid</string>
+    <string name="login_error_incorrect_password">A jelszó hibás</string>
+    <string name="login_error_field_required">Kötelező mező</string>
+    <string name="login_permission_rationale">"Az email cím automatikus javításához szükséges engedély a kontaktokhoz való hozzáférés!"</string>
+    <string name="login_register">Regisztráció</string>
+    <string name="login_password_failure">A megadott jelszó nem egyezik meg a felhasználóhoz rendelt jelszóval</string>
+    <string name="login_password_succes">Bejelentkezve</string>
+
+    <!-- Strings related to Register screen -->
+    <string name="register_prompt_label">Regisztrácio</string>
+    <string name="register_prompt_email">Email cím</string>
+    <string name="register_prompt_password">Jelszó</string>
+    <string name="register_prompt_firstname">Keresztnév</string>
+    <string name="register_prompt_lastname">Vezetéknév</string>
+    <string name="register_prompt_newsletter">Hírlevél feliratkozás</string>
+    <string name="register_prompt_register">Regisztrálok</string>
+
+    <!-- Code Redeem -->
+    <string name="redeem_dialog_title">Ajándék kód megadása</string>
+    <string name="redeem_dialog_btn_redeem">Beváltás</string>
+    <string name="redeem_dialog_btn_dismiss">Mégse</string>
+
+    <!--Strings related to String Checker -->
+    <string name="task_string_guess_help">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="task_string_guess_hint_in_edittext">Jelszó</string>
+    <string name="task_string_guess_button_text">Ellenőrzés</string>
+
+</resources>

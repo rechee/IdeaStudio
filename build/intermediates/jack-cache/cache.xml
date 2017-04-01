@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/richard/.android/build-cache/63201395e9351042b591903fc6febfdca87a00c1/output/jars/classes.jar"
+        revision="25.0.0"
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-b0880556928409aa4f60dcea7857b3421de17449.jar" />
+    </item>
+    <item
+        jar="/Users/richard/.android/build-cache/701ca62b79010cb6455593d4b7d8d35ed1d4aa40/output/jars/classes.jar"
+        revision="25.0.0"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-bc1812ae493815150512baf13ba3ee0e9e8ecd93.jar" />
+    </item>
+    <item
+        jar="/Users/richard/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        revision="25.0.0"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/constraint-layout-solver-1.0.2-bff4ec898ef80b37f12f75d62f2b3ce1c3c73e28.jar" />
+    </item>
+    <item
+        jar="/Users/richard/.android/build-cache/e910989088653482a3128a17338c43e7a0ec2405/output/jars/classes.jar"
+        revision="25.0.0"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-5aa4ffee058515dcd9bd97ba57bbce5b800d5f01.jar" />
+    </item>
+    <item
+        jar="/Users/richard/.android/build-cache/d37f946cd89b44a95766fc420862c2f4901372b5/output/jars/classes.jar"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-151a0b932f44afee5f3c1e759e8ca0894dd90692.jar" />
+    </item>
+    <item
+        jar="/Users/richard/.android/build-cache/69dad8db094f1dd302263e62edd2bb58b175fc6b/output/jars/classes.jar"
+        revision="25.0.0"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-0df3e7df76277c971ca5acd72344c05802a2be1f.jar" />
+    </item>
+    <item
+        jar="/Users/richard/Downloads/IdeaStudio/mysql-connector-java-5.1.40-bin/mysql-connector-java-5.1.40-bin.jar"
+        revision="25.0.0"
+        sha1="7c6a4b402a1f6106ffaf8a957004f30f57d9bdc7">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/mysql-connector-java-5.1.40-bin-c127e9259725537c2e6d0ac8277afafb5acaa9ff.jar" />
+    </item>
+    <item
+        jar="/Users/richard/.android/build-cache/409d93156e4f998b3107cda8063dfe51460680f2/output/jars/classes.jar"
+        revision="25.0.0"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-d4625fe99a9252852902a55ad0f6f4de98af30da.jar" />
+    </item>
+    <item
+        jar="/Users/richard/.android/build-cache/4424f0fa435ae09c583eb920898c494af523722f/output/jars/classes.jar"
+        revision="25.0.0"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-9925649e5a23caa729d557ec1613c01e4aa20179.jar" />
+    </item>
+    <item
+        jar="/Users/richard/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.2.0/support-annotations-25.2.0.jar"
+        revision="25.0.0"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/support-annotations-25.2.0-24e2cbc726f3bfcca35a83854cca067edab80a3c.jar" />
+    </item>
+    <item
+        jar="/Users/richard/.android/build-cache/e33b23c4d06b6911eb2e4175b362fb32475ac7a2/output/jars/classes.jar"
+        revision="25.0.0"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-0631ed253ac6297f9d0faeb08e7d9b1e82f4dc7c.jar" />
+    </item>
+    <item
+        jar="/Users/richard/.android/build-cache/91c4adddd6db80c6d2c90dfd39fb32fe74746c8e/output/jars/classes.jar"
+        revision="25.0.0"
+        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-bcc86166efcc813985a54be62d65c915fa45b220.jar" />
+    </item>
+    <item
+        jar="/Users/richard/.android/build-cache/a77aca57230c8d87ed9276468d6bf6b9ebe7dca2/output/jars/classes.jar"
+        revision="25.0.0"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-31b92ae88ab5c9231fcab3fc5c3506907230035d.jar" />
+    </item>
+    <item
+        jar="/Users/richard/.android/build-cache/42de19e49e63675c83589d8e90d647e4528b5b81/output/jars/classes.jar"
+        revision="25.0.0"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-dfdacc9dc88331b793e5018a8a0d6f2c465eb52d.jar" />
+    </item>
+    <item
+        jar="/Users/richard/.android/build-cache/006c59179cace8bcda6005fa529e59110e3af345/output/jars/classes.jar"
+        revision="25.0.0"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-600dc47f51c2ce65078a763978fc1d671ea17d8b.jar" />
+    </item>
+    <item
+        jar="/Users/richard/.android/build-cache/706476dc4a391af0d6fdbe220389e6b21b524c4b/output/jars/classes.jar"
+        revision="25.0.0"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/classes-2787977840db3802319ef63f81f12238458603d4.jar" />
+    </item>
+    <item
+        jar="/Users/richard/Downloads/IdeaStudio/mysql-database-1.8.0/mysql-database-1.8.0.jar"
+        revision="25.0.0"
+        sha1="770f1f51c25c728f9ad7aa32a9d626d890c69584">
+        <dex dex="/Users/richard/Downloads/IdeaStudio/app/build/intermediates/transforms/preJackPackagedLibraries/debug/jars/8000/1f/mysql-database-1.8.0-99302d04d7fb54c9e8ebd9914c6a0b6c63068fa6.jar" />
+    </item>
+
+</items>
