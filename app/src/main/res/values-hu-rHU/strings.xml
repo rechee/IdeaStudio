@@ -6,6 +6,9 @@
     <string name="sql_connection_username">richard</string>
     <string name="sql_connection_password">670820</string>
 
+    <!-- Strings related to Adventure List Screen -->
+    <string name="AdventurePriceFree">Free</string>
+
     <!-- SharedPreferences keys -->
     <string name="hu.ideastudio.richard_loginInfo">hu.ideastudio.richard_loginInfo</string>
 

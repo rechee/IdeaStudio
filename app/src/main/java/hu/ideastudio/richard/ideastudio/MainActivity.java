@@ -1,17 +1,20 @@
 package hu.ideastudio.richard.ideastudio;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.text.InputType;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,16 +24,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -44,25 +56,68 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
+        try {
+            try {
+                init();
+            } catch (ExecutionException | InterruptedException e) {
+                e.printStackTrace();
             }
-        });
-
+        } catch (IllegalAccessException | InstantiationException | SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        drawer.openDrawer(Gravity.LEFT);
+        //drawer.openDrawer(Gravity.START);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.getMenu().getItem(1).setChecked(true);
+    }
+
+    private void inflateListView(List<String> adventureName, List<String> adventurePrice, List<String> adventureShortDescription, List<Integer> adventureid, List<String> adventureIamgePath) {
+        ListView lv = (ListView) findViewById(R.id.lvAdventures);
+        final List<Adventure> AdventureList = new ArrayList<Adventure>();
+        for (int i = 0; i < adventureid.size(); i++) {
+            if (Integer.parseInt(adventurePrice.get(i)) != 0) {
+                if (Locale.getDefault().toString().equals("hu_HU")){
+                    Toast.makeText(getApplicationContext(), adventureIamgePath.get(i), Toast.LENGTH_SHORT).show();
+                    AdventureList.add(new Adventure(adventureName.get(i), adventurePrice.get(i) + " Forint", adventureShortDescription.get(i), adventureIamgePath.get(i)));
+                }else {
+                    AdventureList.add(new Adventure(adventureName.get(i), adventurePrice.get(i) + " HUF", adventureShortDescription.get(i), adventureIamgePath.get(i)));
+                }
+            } else {
+                AdventureList.add(new Adventure(adventureName.get(i), getResources().getString(R.string.AdventurePriceFree), adventureShortDescription.get(i), null));
+            }
+        }
+        lv.setAdapter(new AdventureListViewAdapter(MainActivity.this, AdventureList, " "));
+        lv.setDivider(new ColorDrawable(Color.TRANSPARENT));
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent i = new Intent(MainActivity.this, AdventureDetailsActivity.class);
+                i.putExtra("AdventureId", adventureid.get(position).toString());
+                startActivity(i);
+            }
+        });
+    }
+
+    @Deprecated
+    public Bitmap getBitmapFromURL(String src) {
+        try {
+            java.net.URL url = new java.net.URL(src);
+            HttpURLConnection connection = (HttpURLConnection) url
+                    .openConnection();
+            connection.setDoInput(true);
+            connection.connect();
+            InputStream input = connection.getInputStream();
+            return BitmapFactory.decodeStream(input);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
@@ -97,13 +152,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_adventures) {
             try {
                 init();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (SQLException e) {
+            } catch (IllegalAccessException | InstantiationException | SQLException | ClassNotFoundException | InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
         } else if (id == R.id.nav_redeem) {
@@ -128,30 +177,49 @@ public class MainActivity extends AppCompatActivity
             builder.show();
 
         } else if (id == R.id.nav_bug_report) {
-            Intent i = new Intent(this, StringSelectorActivity.class);
-            i.putExtra("AdventureId", 1);
-            startActivity(i);
+            startActivity(new Intent(this, SimpleMapsActivity.class));
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    public void init() throws IllegalAccessException, InstantiationException, ClassNotFoundException, SQLException {
-        DbConnectionJob dcj = new DbConnectionJob(getApplicationContext(), output -> {
-        });
-        String[] queryToAdd = new String[]{"SELECT * FROM isa_users"};
-        dcj.execute(queryToAdd);
+    public void init() throws IllegalAccessException, InstantiationException, ClassNotFoundException, SQLException, ExecutionException, InterruptedException {
+        GetAdventureListTask getAdventureListTask = (GetAdventureListTask) new GetAdventureListTask(getApplicationContext(), new MainActivityAdventureListIterface() {
+            @Override
+            public void AdventureListFillFinished(List<String> AdventureName, List<String> AdventurePrice, List<String> AdventureShortDescription, List<Integer> Adventureid, List<String> AdventureImagePath) {
+                Toast.makeText(getApplicationContext(), AdventureImagePath.get(0), Toast.LENGTH_SHORT).show();
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("ideastudio", AdventureImagePath.get(0));
+                clipboard.setPrimaryClip(clip);
+                inflateListView(AdventureName, AdventurePrice, AdventureShortDescription, Adventureid, AdventureImagePath);
+            }
+        }).execute(queryBuilder()).get();
+        //dcj.execute(queryBuilder()).get();
+    }
+
+    private String queryBuilder() {
+        StringBuilder sb = new StringBuilder();
+        if (Locale.getDefault().toString().equals("hu_HU")){
+            sb.append("Select id, nameH, Price, shortDescriptionH, imagePath FROM isa_adventure");
+        } else {
+            sb.append("Select id, nameE, Price, shortDescriptionE, imagePath FROM `isa_adventure` ");
+        }
+        return sb.toString();
     }
 }
 
-class DbConnectionJob extends AsyncTask {
+class GetAdventureListTask extends AsyncTask {
 
     private Context context;
-    Connection conn = null;
-    public AsyncResponse delegate = null;
+    private Connection conn = null;
+    private MainActivityAdventureListIterface delegate = null;
     Handler handler;
-    String entry = "";
+    private List<String> AdventureNames;
+    private List<String> AdventurePrices;
+    private List<String> AdventureShortDescription;
+    private List<Integer> AdventureId;
+    private List<String> AdventureImagePath;
 
     public interface AsyncResponse {
         void processFinish(String output);
@@ -159,7 +227,7 @@ class DbConnectionJob extends AsyncTask {
 
     }
 
-    public DbConnectionJob(Context context, AsyncResponse delegate) {
+    public GetAdventureListTask(Context context, MainActivityAdventureListIterface delegate) {
         this.delegate = delegate;
         this.context = context;
     }
@@ -179,11 +247,11 @@ class DbConnectionJob extends AsyncTask {
             username = "richard";
             password = "670820";
         } else {
-            url = "jdbc:mysql://192.168.43.86:3306/isa";
+            url = "jdbc:mysql://192.168.1.65:3306/isa";
             username = "richard";
             password = "670820";
         }
-
+        Log.d("stuffs", url);
 
         /*
         String url = String.valueOf(R.string.sql_connection_url);
@@ -199,11 +267,7 @@ class DbConnectionJob extends AsyncTask {
 
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         try {
@@ -223,14 +287,22 @@ class DbConnectionJob extends AsyncTask {
             try {
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(queryArray[i]);
+                AdventureNames = new ArrayList<String>();
+                AdventurePrices = new ArrayList<String>();
+                AdventureShortDescription = new ArrayList<String>();
+                AdventureId = new ArrayList<Integer>();
+                AdventureImagePath = new ArrayList<String>();
                 while (rs.next()) {
-                    entry = rs.getString("passwordHash");
+                    AdventureId.add(Integer.parseInt(rs.getString(1)));
+                    AdventureNames.add(rs.getString(2));
+                    AdventurePrices.add(rs.getString(3));
+                    AdventureShortDescription.add(rs.getString(4));
+                    AdventureImagePath.add(rs.getString(5));
                 }
                 Handler handler = new Handler(context.getMainLooper());
-                String finalEntry = entry;
                 handler.post(new Runnable() {
                     public void run() {
-                        Toast.makeText(context, finalEntry,Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, AdventureShortDescription.get(0) + " " + AdventureShortDescription.get(1), Toast.LENGTH_LONG).show();
                     }
                 });
                 rs.close();
@@ -245,6 +317,6 @@ class DbConnectionJob extends AsyncTask {
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
+        delegate.AdventureListFillFinished(AdventureNames, AdventurePrices, AdventureShortDescription, AdventureId, AdventureImagePath);
     }
-
 }

@@ -132,7 +132,7 @@ class UserRegisterTask extends AsyncTask {
             username = "richard";
             password = "670820";
         } else {
-            url = "jdbc:mysql://192.168.43.86:3306/isa";
+            url = "jdbc:mysql://192.168.1.65:3306/isa";
             username = "richard";
             password = "670820";
         }

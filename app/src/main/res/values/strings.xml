@@ -8,7 +8,10 @@
     <string name="sql_connection_password">670820</string>
 
 
-    //SharedPreferences keys
+    <!-- Strings related to Adventure List Screen -->
+    <string name="AdventurePriceFree">Free</string>
+
+    <!-- SharedPreferences keys -->
     <string name="hu.ideastudio.richard_loginInfo">hu.ideastudio.richard_loginInfo</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -61,6 +64,8 @@
     <string name="task_string_guess_button_text">Check</string>
     <string name="title_activity_image_view">ImageViewActivity</string>
     <string name="title_activity_zoom_in_zoom_out">ZoomInZoomOut</string>
+    <string name="title_activity_adventure_details">AdventureDetailsActivity</string>
+    <string name="title_activity_simple_maps">Map</string>
 
 
 </resources>

@@ -6,5 +6,6 @@ package hu.ideastudio.richard.ideastudio;
 
 interface AsyncResponse{
     void processFinish(String output);
+
     //String getLastId(String getIdCount);
 }
